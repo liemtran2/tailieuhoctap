@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Tài Liệu Học Tập</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="hero-section">
+        <h1>Tài liệu ôn thi ĐGNL-THPTQG</h1>
+        <p>Kho tài liệu độc quyền tổng hợp từ nhiều nguồn</p>
+        
+        <div class="filter-container">
+            <select id="locMonHoc" class="dropdown-monhoc">
+                <option value="all">🌟 Tất cả môn học</option>
+                </select>
+        </div>
+    </header>
+
+    <main id="khuVucChuaCard">
+        <div class="loading-state">
+            <p>⏳ Đang lấy tài liệu từ vũ trụ Firebase về...</p>
+        </div>
+    </main>
+
+    <div id="khuVucFooter"></div>
+
+    <script src="banquyen/footer.js"></script>
+    
+    <script type="module" src="js/hienthi.js"></script>
+</body>
+</html>

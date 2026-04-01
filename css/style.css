@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+    /* Đổi sang background màu tối xíu nhìn cho ngầu và đỡ mỏi mắt */
+    background: #0f2027; 
+    background: -webkit-linear-gradient(to right, #203a43, #0f2027, #2c5364);  
+    background: linear-gradient(to right, #203a43, #0f2027, #2c5364); 
+    min-height: 100vh;
+    color: #edf2f7;
+}
+
+/* Khu vực Header cực cháy */
+.hero-section {
+    text-align: center;
+    padding: 4rem 1rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    background: -webkit-linear-gradient(#00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #a0aec0;
+    margin-bottom: 20px;
+}
+
+/* Nút thêm tài liệu */
+.add-btn {
+    background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* Hiệu ứng khung bài Glassmorphism */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card h2 {
+    color: #e2e8f0;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.card p {
+    color: #cbd5e0;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+/* Khu vực Nút bấm trong thẻ */
+.links {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.doc-btn {
+    background-color: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+
+.doc-btn:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.vid-btn {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.vid-btn:hover {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.loading-state {
+    text-align: center;
+    grid-column: 1 / -1;
+    font-size: 1.2rem;
+    color: #a0aec0;
+}
+/* --- TRANG TRÍ CHO TÊN DANH MỤC MÔN HỌC --- */
+.category-title {
+    max-width: 1200px;
+    margin: 2.5rem auto 1.5rem auto;
+    padding: 0 1rem 10px 1rem;
+    font-size: 2rem;
+    color: #00c6ff;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Chỉnh lại margin của container để các danh mục cách nhau ra */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+/* --- TRANG TRÍ THANH LỌC MÔN HỌC --- */
+.filter-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-monhoc {
+    appearance: none; /* Xóa cái mũi tên xấu xí mặc định của trình duyệt */
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px 45px 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px; /* Bo tròn xoe */
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    
+    /* Gắn mũi tên trắng custom siêu nét */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px top 50%;
+    background-size: 14px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-monhoc:hover, .dropdown-monhoc:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #00c6ff;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.4); /* Phát sáng màu xanh */
+}
+
+/* Chỉnh màu cho danh sách xổ xuống */
+.dropdown-monhoc option {
+    background-color: #0f2027; 
+    color: #fff;
+    padding: 10px;
+}
+
+/* Hiệu ứng ẩn/hiện mượt mà khi lọc */
+.category-section {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* --- TRANG TRÍ NHÃN BUỔI HỌC --- */
+.badge-buoi {
+    display: inline-block;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    width: fit-content;
+    box-shadow: 0 2px 10px rgba(0, 198, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+/* =========================================
+   PHẦN FOOTER BẢN QUYỀN CỦA TR THANH LIÊM 
+========================================= */
+.site-footer {
+    background: rgba(0, 0, 0, 0.2); /* Làm nền đen mờ */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 1rem 1rem 1rem;
+    margin-top: 4rem; /* Đẩy footer cách xa phần nội dung ở trên ra */
+    color: #cbd5e0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Tự động xuống dòng khi xem trên điện thoại */
+    justify-content: space-between;
+    gap: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 2rem;
+}
+
+/* Cột bên trái: Lời nhắn & Chúc thi tốt */
+.footer-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.footer-info h3, .footer-contact h3 {
+    color: #00c6ff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-info p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.wish-text {
+    color: #f39c12; /* Màu vàng cam nổi bật */
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* Cột bên phải: Thông tin liên hệ */
+.footer-contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-contact p {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.footer-contact a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.footer-contact a:hover {
+    color: #00c6ff;
+    text-decoration: underline;
+}
+
+/* Dòng Copyright dưới cùng */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #718096;
+    letter-spacing: 0.5px;
+}
+/* --- TRANG TRÍ LOGO FONT AWESOME CHO FOOTER --- */
+.footer-contact i {
+    width: 25px; /* Cố định chiều rộng để text đứng thẳng hàng */
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.fb-icon {
+    color: #1877F2; /* Màu xanh chuẩn của Facebook */
+}
+
+.email-icon {
+    color: #ea4335; /* Màu đỏ chuẩn của Gmail */
+}
+
+/* Thêm hiệu ứng bừng sáng khi lia chuột qua logo */
+.footer-contact a:hover .fb-icon {
+    text-shadow: 0 0 10px rgba(24, 119, 242, 0.8);
+}
+
+.footer-contact a:hover .email-icon {
+    text-shadow: 0 0 10px rgba(234, 67, 53, 0.8);
+}
